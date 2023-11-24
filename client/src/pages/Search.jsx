@@ -400,7 +400,7 @@ export default function Search() {
         <form onSubmit={handleSubmit} className='d-flex flex-column gap-4'>
           <div className='d-flex align-items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
-              Search Term:
+              Search Term/item:
             </label>
             <input
               type='text'

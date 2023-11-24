@@ -213,7 +213,7 @@ export default function Home() {
               <div
                 style={{
                   background: `url(${listing.imageUrls[0]}) center no-repeat`,
-                  backgroundSize: "cover",
+                  // backgroundSize: "cover",
                 }}
                 className="h-500px"
               ></div>
