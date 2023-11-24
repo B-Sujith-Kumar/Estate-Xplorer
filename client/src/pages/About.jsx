@@ -13,8 +13,6 @@
 //   )
 // }
 
-import React from "react";
-
 export default function About() {
   return (
     <div className="py-5 px-4 max-w-6xl mx-auto">

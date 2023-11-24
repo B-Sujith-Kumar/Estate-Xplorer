@@ -175,7 +175,7 @@ export default function Home() {
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
-        log(error);
+        console.log(error);
       }
     };
     fetchOfferListings();
@@ -191,7 +191,7 @@ export default function Home() {
           place with ease
         </h1>
         <div className="text-muted fs-6">
-          Sahand Estate is the best place to find your next perfect place to
+          Estate Xplorer is the best place to find your next perfect place to
           live.
           <br />
           We have a wide range of properties for you to choose from.
@@ -200,7 +200,7 @@ export default function Home() {
           to={"/search"}
           className="btn btn-outline-primary fs-6 fw-bold text-decoration-none"
         >
-          Let's get started...
+          Let&apos;s get started...
         </Link>
       </div>
 

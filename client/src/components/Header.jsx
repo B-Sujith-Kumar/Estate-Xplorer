@@ -106,8 +106,8 @@ export default function Header() {
         <div className="d-flex justify-content-between align-items-center">
           <Link to="/" className="text-decoration-none">
             <h1 className="font-bold text-sm sm:text-xl text-dark">
-              <span className="text-primary">Sahand</span>
-              <span className="text-secondary">Estate</span>
+              <span className="text-primary">Estate</span>
+              <span className="text-secondary">Xplorer</span>
             </h1>
           </Link>
           <form
