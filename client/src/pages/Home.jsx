@@ -184,18 +184,22 @@ export default function Home() {
   return (
     <div>
       {/* top */}
+      <center>
       <div className="container-fluid px-4 py-5">
-        <h1 className="text-primary fw-bold fs-3 fs-lg-5">
+        
+        <h1 className="text-primary fw-bold fs-3 fs-lg-5 my-4">
           Find your next <span className="text-info">perfect</span>
           <br />
           place with ease
         </h1>
-        <div className="text-muted fs-6">
+        
+        <div className="text-muted fs-6 mb-4">
           Estate Xplorer the best place to find your next perfect place to
           live.
           <br />
           We have a wide range of properties for you to choose from.
         </div>
+        
         <Link
           to={"/search"}
           className="btn btn-outline-primary fs-6 fw-bold text-decoration-none"
@@ -203,7 +207,7 @@ export default function Home() {
           Let&apos;s get started...
         </Link>
       </div>
-
+      </center>
       {/* swiper */}
       <Swiper navigation>
         {offerListings &&

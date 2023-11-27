@@ -159,6 +159,7 @@ import SwiperCore from "swiper";
 import { useSelector } from "react-redux";
 import { Navigation } from "swiper/modules";
 import "swiper/css/bundle";
+import './Listing.css'
 import {
   FaBath,
   FaBed,
@@ -205,20 +206,20 @@ export default function Listing() {
   }, [params.listingId]);
 
   return (
-    <main>
+    <main className="p-4 border-rounded ">
       {loading && <p className="text-center my-7 fs-4">Loading...</p>}
       {error && <p className="text-center my-7 fs-4">Something went wrong!</p>}
       {listing && !loading && !error && (
-        <div>
-          <div id="swiper" className="swiper">
-            <div className="swiper-wrapper">
+        <div  id="ind-container" className="  mt-20">
+          <div id="swiper" className="swiper h-[30rem]   w-[50rem]">
+            <div className="swiper-wrapper mt-4 ">
               {listing.imageUrls.map((url) => (
-                <div key={url} className="swiper-slide">
+                <div key={url} className="swiper-slide border-rounded">
                   <div
-                    className="h-[550px]"
+                    className="h-[30rem]   w-[50rem]"
                     style={{
                       background: `url(${url}) center no-repeat`,
-                      backgroundSize: "cover",
+                      backgroundSize:"cover",
                     }}
                   ></div>
                 </div>
@@ -227,6 +228,7 @@ export default function Listing() {
             <div className="swiper-button-next"></div>
             <div className="swiper-button-prev"></div>
           </div>
+          <div>
           <div className="fixed top-13 start-3 z-10 border rounded-circle w-12 h-12 d-flex justify-content-center align-items-center bg-slate-100 cursor-pointer">
             <FaShare
               className="text-slate-500"
@@ -246,7 +248,7 @@ export default function Listing() {
           )}
           <div className="d-flex flex-column max-w-4xl mx-auto p-3 my-7 gap-4">
             <p className="fs-4 font-semibold">
-              {listing.name} - ${" "}
+              {listing.name} - Rs.{" "}
               {listing.offer
                 ? listing.discountPrice.toLocaleString("en-US")
                 : listing.regularPrice.toLocaleString("en-US")}
@@ -257,12 +259,12 @@ export default function Listing() {
               {listing.address}
             </p>
             <div className="d-flex gap-4">
-              <p className="bg-danger w-full max-w-200 text-white text-center p-1 rounded-md">
+              <p className="bg-danger p-2 px-4 max-w-200 text-white text-center p-1 rounded-md">
                 {listing.type === "rent" ? "For Rent" : "For Sale"}
               </p>
               {listing.offer && (
-                <p className="bg-success w-full max-w-200 text-white text-center p-1 rounded-md">
-                  ${+listing.regularPrice - +listing.discountPrice} OFF
+                <p className="bg-success  p-2 px-4 max-w-200 text-white text-center p-1 rounded-md">
+                  Rs.{+listing.regularPrice - +listing.discountPrice} OFF
                 </p>
               )}
             </div>
@@ -295,12 +297,13 @@ export default function Listing() {
             {currentUser && listing.userRef !== currentUser._id && !contact && (
               <button
                 onClick={() => setContact(true)}
-                className="bg-slate-700 text-white rounded-lg text-uppercase hover-opacity-95 p-3"
+                className="bg-slate-700 text-white w-50 rounded-lg text-uppercase hover-opacity-95 p-3"
               >
                 Contact landlord
               </button>
             )}
             {contact && <Contact listing={listing} />}
+          </div>
           </div>
         </div>
       )}

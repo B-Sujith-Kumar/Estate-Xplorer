@@ -112,17 +112,17 @@ export default function Header() {
           </Link>
           <form
             onSubmit={handleSubmit}
-            className="bg-light p-3 rounded-lg d-flex align-items-center"
+            className="bg-light  rounded-lg d-flex align-items-center p-1"
           >
             <input
               type="text"
               placeholder="Search..."
-              className="bg-transparent focus-outline-none w-100 me-2"
+              className="bg-transparent focus-outline-none w-100 me-2 p-2 border-light"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button type="submit" className="btn btn-primary">
-              <FaSearch className="text-light" />
+            <button type="submit" className=" p-2 border-none" >
+              <FaSearch className="text-dark" />
             </button>
           </form>
           <ul className="d-flex gap-4">

@@ -56,7 +56,7 @@ import { MdLocationOn } from "react-icons/md";
 
 export default function ListingItem({ listing }) {
   return (
-    <div className="card bg-white shadow-md hover-shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-330">
+    <div className="card bg-white shadow-md hover-shadow-lg mx-2 transition-shadow overflow-hidden rounded-lg spac sm:w-330">
       <Link to={`/listing/${listing._id}`} className="text-decoration-none">
         <img
           src={
@@ -64,7 +64,7 @@ export default function ListingItem({ listing }) {
             "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg"
           }
           alt="listing cover"
-          className="card-img-top h-320 sm:h-220 w-full object-cover hover-scale-105 transition-scale-300"
+          className="card-img-top h-320 sm:h-220 w-full object-cover hover-scale-105 transition-scale-300 p-4 px-2 rounded"
         />
         <div className="card-body p-3 d-flex flex-column gap-2 w-full">
           <p className="card-title h5 fw-bold text-slate-700">{listing.name}</p>
@@ -78,7 +78,7 @@ export default function ListingItem({ listing }) {
             {listing.description}
           </p>
           <p className="card-text text-slate-500 mt-2 fw-bold ">
-            $
+            Rs. 
             {listing.offer
               ? listing.discountPrice.toLocaleString("en-US")
               : listing.regularPrice.toLocaleString("en-US")}

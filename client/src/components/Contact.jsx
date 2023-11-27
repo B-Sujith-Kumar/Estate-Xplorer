@@ -147,19 +147,15 @@ export default function Contact({ listing }) {
             value={message}
             onChange={onChange}
             placeholder="Enter your message here..."
-            className="form-control mt-2"
+            className="form-control mt-4"
           ></textarea>
 
           <Link
             to={`mailto:${landlord.email}?subject=Regarding ${listing.name}&body=${message}`}
-            className="btn btn-primary mt-2"
-            style={{
-              textDecoration: "none",
-              color: "white",
-              backgroundColor: "#007bff",
-              borderColor: "#007bff",
-            }}
+            className="btn btn-info mt-4 p-2"
+            
           >
+          
             Send Message
           </Link>
         </div>

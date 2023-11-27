@@ -395,8 +395,9 @@ export default function Search() {
   };
 
   return (
-    <div className='d-flex flex-column flex-md-row'>
-      <div className='p-7 border-bottom-2 border-md-end-2 md:min-h-screen'>
+    <div className=''>
+      <center>
+      <div className='p-7 border-bottom-2 border-md-end-2 ' style={{maxWidth:"500px"}}>
         <form onSubmit={handleSubmit} className='d-flex flex-column gap-4'>
           <div className='d-flex align-items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
@@ -408,6 +409,7 @@ export default function Search() {
               placeholder='Search...'
               className='border rounded-lg p-3 w-full'
               value={sidebardata.searchTerm}
+              
               onChange={handleChange}
             />
           </div>
@@ -496,16 +498,17 @@ export default function Search() {
           </button>
         </form>
       </div>
-      <div className='flex-1'>
+      </center>
+      <div className='flex-1 m-0'>
         <h1 className='text-3xl font-semibold border-b p-3 text-slate-700 mt-5'>
           Listing results:
         </h1>
-        <div className='p-7 d-flex flex-wrap gap-4'>
+        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 m-0 p-4'>
           {!loading && listings.length === 0 && (
             <p className='text-xl text-slate-700'>No listing found!</p>
           )}
           {loading && (
-            <p className='text-xl text-slate-700 text-center w-full'>
+            <p className='text-xl text-slate-700 text-center '>
               Loading...
             </p>
           )}
