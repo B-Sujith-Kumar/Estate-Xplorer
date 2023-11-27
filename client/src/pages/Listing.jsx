@@ -259,8 +259,8 @@ export default function Listing() {
               {listing.address}
             </p>
             <div className="d-flex gap-4">
-              <p className="bg-danger p-2 px-4 max-w-200 text-white text-center p-1 rounded-md">
-                {listing.type === "rent" ? "For Rent" : "For Sale"}
+              <p className="btn bg-light text-danger border-danger p-2 px-4 max-w-200  text-center p-1 rounded-md fw-bolder">
+                {listing.type === "rent" ? "* For Rent" : " * For Sale"}
               </p>
               {listing.offer && (
                 <p className="bg-success  p-2 px-4 max-w-200 text-white text-center p-1 rounded-md">

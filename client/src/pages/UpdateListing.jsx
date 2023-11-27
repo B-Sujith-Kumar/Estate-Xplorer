@@ -174,7 +174,7 @@ export default function CreateListing() {
       <h1 className='text-3xl font-semibold text-center my-7'>
         Update a Listing
       </h1>
-      <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
+      <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4  p-4 border rounded '>
         <div className='flex flex-col gap-4 flex-1'>
           <input
             type='text'
@@ -325,7 +325,7 @@ export default function CreateListing() {
           </div>
         </div>
         <div className='flex flex-col flex-1 gap-4'>
-          <p className='font-semibold'>
+          <p className='font-semibold '>
             Images:
             <span className='font-normal text-gray-600 ml-2'>
               The first image will be the cover (max 6)
@@ -334,7 +334,7 @@ export default function CreateListing() {
           <div className='flex gap-4'>
             <input
               onChange={(e) => setFiles(e.target.files)}
-              className='p-3 border border-gray-300 rounded w-full'
+              className='p-1 border border-gray-300 rounded w-full'
               type='file'
               id='images'
               accept='image/*'
@@ -344,7 +344,7 @@ export default function CreateListing() {
               type='button'
               disabled={uploading}
               onClick={handleImageSubmit}
-              className='p-3 text-green-700 border border-green-700 rounded uppercase hover:shadow-lg disabled:opacity-80'
+              className='btn bg-success py-2 px-4 border rounded uppercase hover:shadow-lg disabled:opacity-80'
             >
               {uploading ? 'Uploading...' : 'Upload'}
             </button>
@@ -356,7 +356,7 @@ export default function CreateListing() {
             formData.imageUrls.map((url, index) => (
               <div
                 key={url}
-                className='flex justify-between p-3 border items-center'
+                className='flex justify-between p-3 border  items-center rounded'
               >
                 <img
                   src={url}
@@ -366,7 +366,7 @@ export default function CreateListing() {
                 <button
                   type='button'
                   onClick={() => handleRemoveImage(index)}
-                  className='p-3 text-red-700 rounded-lg uppercase hover:opacity-75'
+                  className='btn bg-danger p-2 px-4  rounded-lg uppercase hover:opacity-75'
                 >
                   Delete
                 </button>
@@ -374,7 +374,7 @@ export default function CreateListing() {
             ))}
           <button
             disabled={loading || uploading}
-            className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+            className='p-3 bg-slate-700 text-white rounded-lg uppercase w-50 hover:opacity-95 disabled:opacity-80'
           >
             {loading ? 'Updating...' : 'Update listing'}
           </button>

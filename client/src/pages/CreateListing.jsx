@@ -529,11 +529,11 @@ export default function CreateListing() {
   };
 
   return (
-    <main className="p-3 max-w-4xl mx-auto">
+    <main className="p-3 max-w-5xl mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">
         Create a Listing
       </h1>
-      <form onSubmit={handleSubmit} className="row g-4">
+      <form onSubmit={handleSubmit} className="row g-4 border m-2 rounded">
         <div className="col-md-6">
           <input
             type="text"
@@ -652,13 +652,15 @@ export default function CreateListing() {
                 onChange={handleChange}
                 value={formData.regularPrice}
               />
-              <div className="d-flex flex-column align-items-center">
+              
+              <div className="align-items-center">
                 <label>Regular price</label>
                 {formData.type === "rent" && (
-                  <span className="text-xs">($ / month)</span>
+                  <span className="text-xs">(Rs. / month)</span>
                 )}
               </div>
             </div>
+           
             {formData.offer && (
               <div className="d-flex align-items-center gap-2">
                 <input
@@ -674,7 +676,7 @@ export default function CreateListing() {
                 <div className="d-flex flex-column align-items-center">
                   <label>Discounted price</label>
                   {formData.type === "rent" && (
-                    <span className="text-xs">($ / month)</span>
+                    <span className="text-xs">(Rs. / month)</span>
                   )}
                 </div>
               </div>
@@ -682,7 +684,7 @@ export default function CreateListing() {
           </div>
         </div>
         <div className="col-md-6">
-          <p className="font-weight-bold">
+          <p className="font-weight-bold mb-2">
             Images:
             <span className="font-weight-normal text-gray-600 ml-2">
               The first image will be the cover (max 6)
@@ -691,7 +693,7 @@ export default function CreateListing() {
           <div className="d-flex gap-3">
             <input
               onChange={(e) => setFiles(e.target.files)}
-              className="form-control"
+              className="form-control mb-2"
               type="file"
               id="images"
               accept="image/*"
@@ -701,7 +703,7 @@ export default function CreateListing() {
               type="button"
               disabled={uploading}
               onClick={handleImageSubmit}
-              className="btn btn-success"
+              className="btn  bg-success p-2 px-4 rounded"
             >
               {uploading ? "Uploading..." : "Upload"}
             </button>
@@ -713,7 +715,7 @@ export default function CreateListing() {
             formData.imageUrls.map((url, index) => (
               <div
                 key={url}
-                className="d-flex justify-content-between p-3 border align-items-center"
+                className="d-flex justify-content-between p-3 border align-items-center my-2 rounded "
               >
                 <img
                   src={url}
@@ -723,7 +725,7 @@ export default function CreateListing() {
                 <button
                   type="button"
                   onClick={() => handleRemoveImage(index)}
-                  className="btn btn-danger rounded"
+                  className="btn bg-danger rounded p-2 px-4"
                 >
                   Delete
                 </button>
@@ -731,7 +733,7 @@ export default function CreateListing() {
             ))}
           <button
             disabled={loading || uploading}
-            className="btn btn-primary rounded"
+            className="btn btn-primary p-2 px-4 rounded mb-2"
           >
             {loading ? "Creating..." : "Create listing"}
           </button>

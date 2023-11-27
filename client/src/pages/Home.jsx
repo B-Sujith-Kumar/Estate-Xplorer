@@ -237,7 +237,7 @@ export default function Home() {
                 Show more offers
               </Link>
             </div>
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
               {offerListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
@@ -254,7 +254,7 @@ export default function Home() {
                 Show more places for rent
               </Link>
             </div>
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
               {rentListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
@@ -271,7 +271,7 @@ export default function Home() {
                 Show more places for sale
               </Link>
             </div>
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
               {saleListings.map((listing) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}

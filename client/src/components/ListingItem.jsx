@@ -55,8 +55,8 @@ import { Link } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";
 
 export default function ListingItem({ listing }) {
-  return (
-    <div className="card bg-white shadow-md hover-shadow-lg mx-2 transition-shadow overflow-hidden rounded-lg spac sm:w-330">
+  return (<div className="p-2">
+    <div className="card bg-white shadow-md hover-shadow-lg   transition-shadow overflow-hidden rounded-lg spac sm:w-330">
       <Link to={`/listing/${listing._id}`} className="text-decoration-none">
         <img
           src={
@@ -98,6 +98,7 @@ export default function ListingItem({ listing }) {
           </div>
         </div>
       </Link>
+    </div>
     </div>
   );
 }
