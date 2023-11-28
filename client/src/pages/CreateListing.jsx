@@ -371,6 +371,7 @@
 // }
 
 import { useState } from "react";
+import axios from "axios";
 import {
   getDownloadURL,
   getStorage,
@@ -396,6 +397,10 @@ export default function CreateListing() {
     regularPrice: 50,
     discountPrice: 0,
     offer: false,
+    location: "0",
+    status: "0",
+    propertyType: "0",
+    size: 1000,
     parking: false,
     furnished: false,
   });
@@ -403,6 +408,7 @@ export default function CreateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [predictedPrice, setPredictedPrice] = useState(null);
 
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
@@ -495,6 +501,16 @@ export default function CreateListing() {
         [e.target.id]: e.target.value,
       });
     }
+    if (
+      e.target.name === "location" ||
+      e.target.name === "status" ||
+      e.target.name === "propertyType"
+    ) {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -525,6 +541,37 @@ export default function CreateListing() {
     } catch (error) {
       setError(error.message);
       setLoading(false);
+    }
+  };
+
+  const handlePredictPrice = async (e) => {
+    e.preventDefault();
+    try {
+      const sellerType = 0;
+      const { location, bedrooms, size, propertyType, status } = formData;
+
+      const response = await axios.post(
+        "/api/listing/predict",
+        {
+          location,
+          bedrooms,
+          size,
+          propertyType,
+          sellerType,
+          status,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log(response.data);
+      setPredictedPrice(response.data.predictedPrice);
+      console.log(predictedPrice);
+    } catch (error) {
+      console.error("Prediction request error:", error);
     }
   };
 
@@ -564,6 +611,51 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.address}
           />
+          <label>
+            Location:
+            <select
+              id="location"
+              name="location"
+              onChange={handleChange}
+              value={formData.location}
+            >
+              <option value="0">Bangalore</option>
+              <option value="1">Chennai</option>
+              <option value="2">Delhi</option>
+              <option value="3">Hyderabad</option>
+              <option value="4">Mumbai</option>
+            </select>
+          </label>
+          <label>
+            Status:
+            <select
+              id="status"
+              name="status"
+              onChange={handleChange}
+              value={formData.status}
+            >
+              <option value="0">New</option>
+              <option value="1">Ready to move</option>
+              <option value="2">Resale</option>
+              <option value="3">Under Construction</option>
+            </select>
+          </label>
+
+          <label>
+            Type:
+            <select
+              id="type"
+              name="propertyType"
+              onChange={handleChange}
+              value={formData.propertyType}
+            >
+              <option value="0">Apartment</option>
+              <option value="1">Independent Floor</option>
+              <option value="2">Independent House</option>
+              <option value="3">Residential Plot</option>
+              <option value="4">Villa</option>
+            </select>
+          </label>
           <div className="form-check">
             <input
               type="checkbox"
@@ -614,6 +706,15 @@ export default function CreateListing() {
             />
             <label className="form-check-label">Offer</label>
           </div>
+          <label>
+            Size:
+            <input
+              type="number"
+              id="size"
+              onChange={handleChange}
+              value={formData.size}
+            />
+          </label>
           <div className="d-flex gap-3">
             <div className="d-flex align-items-center gap-2">
               <input
@@ -731,13 +832,25 @@ export default function CreateListing() {
                 </button>
               </div>
             ))}
+          <br />
           <button
             disabled={loading || uploading}
             className="btn btn-primary p-2 px-4 rounded mb-2"
           >
             {loading ? "Creating..." : "Create listing"}
           </button>
+          <br />
+          <br />
+          <button
+            className="btn btn-primary rounded"
+            onClick={handlePredictPrice}
+          >
+            Predict Price
+          </button>
           {error && <p className="text-danger text-sm">{error}</p>}
+          {predictedPrice !== null && (
+            <p>Estimated Price: ₹{predictedPrice.toFixed(2)} Lakhs</p>
+          )}
         </div>
       </form>
     </main>

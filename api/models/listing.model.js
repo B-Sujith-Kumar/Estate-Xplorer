@@ -46,6 +46,22 @@ const listingSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
+    location: {
+      type: String,
+      required: true,
+    },
+    size: {
+      type: Number,
+      required: true,
+    },
+    propertyType: {
+      type: String,
+      required: true,
+    },
+    propertyStatus: {
+      type: String,
+      required: true,
+    },
     imageUrls: {
       type: Array,
       required: true,
