@@ -6,7 +6,6 @@ import { ChildProcess, spawn } from 'child_process';
 
 export const createListing = async (req, res, next) => {
     try {
-        console.log(req.body);
         const listing = await Listing.create(req.body);
         return res.status(201).json(listing);
     } catch (error) {
@@ -117,22 +116,10 @@ export const getListings = async (req, res, next) => {
     }
 };
 
-// export const getPredictedPrice = async (req, res) => {
-//     try {
-//         console.log(req.body);
-//         const { location, bedrooms, size, propertyType, sellerType, status } = req.body;
-//         const propertyStatus = status;
-//         const predictedPrice = await predictHousePrice(location, bedrooms, size, propertyType, sellerType, propertyStatus);
-//         res.json({ predictedPrice });
-//     } catch (error) {
-//         console.error('Prediction error:', error);
-//         res.status(500).json({ error: 'Err' });
-//     }
-// }
 
 export const getPredictedPrice = async (req, res) => {
     try {
-        // console.log(req.body);
+        console.log(req.body);
         const { location, bedrooms, size, propertyType, sellerType, status } = req.body;
         const propertyStatus = status;
         const predictedPrice = await predictHousePrice(location, bedrooms, size, propertyType, sellerType, propertyStatus);
@@ -150,6 +137,8 @@ function predictHousePrice(location, bedrooms, size, propertyType, sellerType, p
     size = parseInt(size);
     propertyType = parseInt(propertyType);
     propertyStatus = parseInt(propertyStatus);
+
+
     return new Promise((resolve, reject) => {
         const process = spawn('python', [
             'predictor.py',
