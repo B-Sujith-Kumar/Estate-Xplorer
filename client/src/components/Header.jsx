@@ -101,50 +101,53 @@ export default function Header() {
   }, [location.search]);
 
   return (
-    <header className="bg-light">
+    <header className="" style={{backgroundColor:"#690707"}}>
       <div className="container-fluid py-2">
         <div className="d-flex justify-content-between align-items-center">
           <Link to="/" className="text-decoration-none">
-            <h1 className="font-bold text-sm sm:text-xl text-dark">
-              <span className="text-primary">Estate</span>
-              <span className="text-secondary">Xplorer</span>
-            </h1>
+            {/* <h1 className="font-bold text-sm sm:text-xl text-dark">
+              <span className="text-light">Estate</span>
+              <span className="text fw-bolder fs-3" style={{color:"gray"}}>X</span>
+              <span className="text-light">plorer</span>
+            </h1> */}
+            <img src="./../../public/pictures/logo.png" style={{width:"200px"}}></img>
           </Link>
           <form
             onSubmit={handleSubmit}
-            className="bg-light  rounded-lg d-flex align-items-center p-1"
+            className="bg-tarnsparent  rounded-lg d-flex align-items-center p-1"
           >
             <input
               type="text"
               placeholder="Search..."
-              className="bg-transparent focus-outline-none w-100 me-2 p-2 border-light"
+              className=" focus-outline-none w-100 me-2 p-2 border-light" style={{background:"#690707"}}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button type="submit" className=" p-2 border-none" >
-              <FaSearch className="text-dark" />
+              <FaSearch className="text-light" />
             </button>
           </form>
           <ul className="d-flex gap-4">
             <Link to="/" className="text-decoration-none">
-              <li className="d-none d-sm-inline text-dark hover-underline">
+              <li className="d-none d-sm-inline text-light hover-underline">
                 Home
               </li>
             </Link>
             <Link to="/about" className="text-decoration-none">
-              <li className="d-none d-sm-inline text-dark hover-underline">
+              <li className="d-none d-sm-inline text-light hover-underline">
                 About
               </li>
             </Link>
             <Link to="/profile" className="text-decoration-none">
               {currentUser ? (
-                <img
-                  className="rounded-circle h-8 w-8 object-cover"
-                  src={currentUser.avatar}
-                  alt="profile"
-                />
+                // <img
+                //   className="rounded-circle h-8 w-8 object-cover"
+                //   src={currentUser.avatar}
+                //   alt="profile"
+                // />
+                <i class="fa fa-user text-light me-2" aria-hidden="true"></i>
               ) : (
-                <li className="text-dark hover-underline">Sign in</li>
+                <li className="text-light hover-underline">Sign in</li>
               )}
             </Link>
           </ul>

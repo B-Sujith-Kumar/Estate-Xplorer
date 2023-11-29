@@ -102,7 +102,7 @@
 //             </p>
 //             <div className='flex gap-4'>
 //               <p className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
-//                 {listing.type === 'rent' ? 'For Rent' : 'For Sale'}
+//                 {listing.type === 'rent' ? 'For Rent' : 'signout'}
 //               </p>
 //               {listing.offer && (
 //                 <p className='bg-green-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
@@ -216,7 +216,7 @@ export default function Listing() {
               {listing.imageUrls.map((url) => (
                 <div key={url} className="swiper-slide border-rounded">
                   <div
-                    className="h-[30rem]   w-[50rem]"
+                    className="h-[30rem]   w-[50rem] "
                     style={{
                       background: `url(${url}) center no-repeat`,
                       backgroundSize:"cover",
@@ -225,13 +225,13 @@ export default function Listing() {
                 </div>
               ))}
             </div>
-            <div className="swiper-button-next"></div>
-            <div className="swiper-button-prev"></div>
+            <div className="swiper-button-next" style={{color:"#fff"}}></div>
+            <div className="swiper-button-prev" style={{color:"#fff"}}></div>
           </div>
           <div>
           <div className="fixed top-13 start-3 z-10 border rounded-circle w-12 h-12 d-flex justify-content-center align-items-center bg-slate-100 cursor-pointer">
             <FaShare
-              className="text-slate-500"
+              className="" style={{color:"#690707"}}
               onClick={() => {
                 navigator.clipboard.writeText(window.location.href);
                 setCopied(true);
@@ -242,7 +242,7 @@ export default function Listing() {
             />
           </div>
           {copied && (
-            <p className="fixed top-23 start-5 z-10 rounded-md bg-slate-100 p-2">
+            <p className=" text-light fixed top-23 start-5 z-10 rounded-md p-2" style={{backgroundColor:"#690707"}} >
               Link copied!
             </p>
           )}
@@ -255,15 +255,15 @@ export default function Listing() {
               {listing.type === "rent" && " / month"}
             </p>
             <p className="d-flex align-items-center mt-6 gap-2 text-slate-600  fs-6">
-              <FaMapMarkerAlt className="text-green-700" />
+              <FaMapMarkerAlt className=""  style={{color:"#006600"}}/>
               {listing.address}
             </p>
             <div className="d-flex gap-4">
               <p className="btn bg-light text-danger border-danger p-2 px-4 max-w-200  text-center p-1 rounded-md fw-bolder">
-                {listing.type === "rent" ? "* For Rent" : " * For Sale"}
+              <i class="fa fa-bullhorn" aria-hidden="true"></i> {listing.type === "rent" ? " * For Rent" : " * For Sale"}
               </p>
               {listing.offer && (
-                <p className="bg-success  p-2 px-4 max-w-200 text-white text-center p-1 rounded-md">
+                <p className="  p-2 px-4 max-w-200 text-white text-center p-1 rounded-md" style={{ backgroundColor: '#006600' }}>
                   Rs.{+listing.regularPrice - +listing.discountPrice} OFF
                 </p>
               )}
@@ -274,32 +274,32 @@ export default function Listing() {
             </p>
             <ul className="text-success font-semibold fs-6 d-flex flex-wrap align-items-center gap-4 sm-gap-6">
               <li className="d-flex align-items-center gap-1 whitespace-nowrap ">
-                <FaBed className="text-lg" />
+                <FaBed className="text-lg" style={{color:"#006600"}}/>
                 {listing.bedrooms > 1
                   ? `${listing.bedrooms} beds `
                   : `${listing.bedrooms} bed `}
               </li>
               <li className="d-flex align-items-center gap-1 whitespace-nowrap ">
-                <FaBath className="text-lg" />
+                <FaBath className="text-lg" style={{color:"#006600"}} />
                 {listing.bathrooms > 1
                   ? `${listing.bathrooms} baths `
                   : `${listing.bathrooms} bath `}
               </li>
               <li className="d-flex align-items-center gap-1 whitespace-nowrap ">
-                <FaParking className="text-lg" />
+                <FaParking className="text-lg" style={{color:"#006600"}} />
                 {listing.parking ? "Parking spot" : "No Parking"}
               </li>
               <li className="d-flex align-items-center gap-1 whitespace-nowrap ">
-                <FaChair className="text-lg" />
+                <FaChair className="text-lg" style={{color:"#006600"}}/>
                 {listing.furnished ? "Furnished" : "Unfurnished"}
               </li>
             </ul>
             {currentUser && listing.userRef !== currentUser._id && !contact && (
               <button
                 onClick={() => setContact(true)}
-                className="bg-slate-700 text-white w-50 rounded-lg text-uppercase hover-opacity-95 p-3"
+                className="bg-dark text-white w-50 rounded-lg  hover-opacity-95 p-2"
               >
-                Contact landlord
+               <i class="fa fa-phone me-2" aria-hidden="true"></i> Contact landlord
               </button>
             )}
             {contact && <Contact listing={listing} />}

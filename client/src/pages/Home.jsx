@@ -140,7 +140,7 @@ import { Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 import "swiper/css/bundle";
 import ListingItem from "../components/ListingItem";
-
+import "./Home.css";
 export default function Home() {
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
@@ -187,22 +187,27 @@ export default function Home() {
       <center>
       <div className="container-fluid px-4 py-5">
         
-        <h1 className="text-primary fw-bold fs-3 fs-lg-5 my-4">
-          Find your next <span className="text-info">perfect</span>
-          <br />
-          place with ease
+        <h1 className="text-dark fw-bold fs-3 fs-lg-5 mt-4">
+        Find your dream home , <br />
+          
+           {/* <img src="./../../public/pictures/logo3.png" style={{width:"40px"}}></img>  */}
+        </h1>
+        <h1 className="text-dark fw-bold fs-3 fs-lg-5 mb-4">
+        <span className="text_1" style={{color:"#690707"}}>live your dream life</span>
+           <span className="text_2" style={{color:"#690707"}}>with Estate<i className="fa fa-xing" aria-hidden="true"></i>plorer</span>
         </h1>
         
-        <div className="text-muted fs-6 mb-4">
-          Estate Xplorer the best place to find your next perfect place to
-          live.
+        <div  className="text-muted fs-6 mb-4">
+          Navigating Dreams to Reality.
           <br />
-          We have a wide range of properties for you to choose from.
+          Your trusted partner in finding and securing the perfect property.
+          <br/>
+          where every space tells a unique story of home.
         </div>
         
         <Link
           to={"/search"}
-          className="btn btn-outline-primary fs-6 fw-bold text-decoration-none"
+          className="btn btn-outline-dark fs-6 fw-bold text-decoration-none"
         >
           Let&apos;s get started...
         </Link>
@@ -230,12 +235,14 @@ export default function Home() {
         {offerListings && offerListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl fw-semibold text-primary">
-                Recent offers
+              <center className="my-4">
+              <h2 className="text-2xl fw-bolder text-dark">
+                Latest Offers
               </h2>
-              <Link className="text-sm text-link" to={"/search?offer=true"}>
-                Show more offers
+              <Link className="text-sm text-link fw-bolder" to={"/search?offer=true"}>
+              <span style={{color:"#690707"}}><i className="fa fa-xing" aria-hidden="true"></i>plore</span> more
               </Link>
+              </center>
             </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
               {offerListings.map((listing) => (
@@ -247,12 +254,14 @@ export default function Home() {
         {rentListings && rentListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl fw-semibold text-primary">
-                Recent places for rent
+            <center className="my-8">
+              <h2 className="text-2xl fw-bolder text-dark">
+                Latest places for rent
               </h2>
-              <Link className="text-sm text-link" to={"/search?type=rent"}>
-                Show more places for rent
+              <Link className="text-sm text-link fw-bolder" to={"/search?type=rent"}>
+              <span style={{color:"#690707"}}><i className="fa fa-xing" aria-hidden="true"></i>plore</span> more
               </Link>
+              </center>
             </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
               {rentListings.map((listing) => (
@@ -264,12 +273,14 @@ export default function Home() {
         {saleListings && saleListings.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl fw-semibold text-primary">
-                Recent places for sale
+            <center className="my-4">
+              <h2 className="text-2xl fw-bolder text-dark ">
+                Latest places for sale
               </h2>
-              <Link className="text-sm text-link" to={"/search?type=sale"}>
-                Show more places for sale
+              <Link className="text-sm text-link fw-bolder" to={"/search?type=sale"}>
+              <span style={{color:"#690707"}}><i className="fa fa-xing" aria-hidden="true"></i>plore</span> more
               </Link>
+              </center>
             </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
               {saleListings.map((listing) => (
@@ -279,6 +290,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      
     </div>
   );
 }

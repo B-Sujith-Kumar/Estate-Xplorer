@@ -55,8 +55,19 @@ import { Link } from "react-router-dom";
 import { MdLocationOn } from "react-icons/md";
 
 export default function ListingItem({ listing }) {
-  return (<div className="p-2">
-    <div className="card bg-white shadow-md hover-shadow-lg   transition-shadow overflow-hidden rounded-lg spac sm:w-330">
+  return (<div className="p-2" >
+    <div className="card bg-white shadow-md hover-shadow-lg   transition-shadow overflow-hidden rounded-lg spac sm:w-330 pb-4"  style={{
+    border: "2px solid gray",
+    transition: "transform 0.4s ease-in-out",
+    height:"400px" // Specify the transition property
+  }}
+  onMouseOver={(e) => {
+    e.currentTarget.style.transform = "scale(1.04)"; // Increase size on hover
+  }}
+  onMouseOut={(e) => {
+    e.currentTarget.style.transform = "scale(1)"; // Reset size on hover out
+  
+  }}>
       <Link to={`/listing/${listing._id}`} className="text-decoration-none">
         <img
           src={
@@ -64,7 +75,7 @@ export default function ListingItem({ listing }) {
             "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg"
           }
           alt="listing cover"
-          className="card-img-top h-320 sm:h-220 w-full object-cover hover-scale-105 transition-scale-300 p-4 px-2 rounded"
+          className="card-img-top h-320 sm:h-220 w-full object-cover hover-scale-105 transition-scale-300 p-2  rounded"
         />
         <div className="card-body p-3 d-flex flex-column gap-2 w-full">
           <p className="card-title h5 fw-bold text-slate-700">{listing.name}</p>

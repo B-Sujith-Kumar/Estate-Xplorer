@@ -156,15 +156,16 @@ export default function SignUp() {
 
         <button
           disabled={loading}
-          className="btn btn-primary rounded-lg p-3 text-uppercase fw-bold"
+          className="btn text-light rounded-lg p-3 text-uppercase fw-bold hover:opacity-80"
+          style={{backgroundColor:"rgb(0,128,128)"}}
         >
           {loading ? "Loading..." : "Sign Up"}
         </button>
-        <OAuth />
+        {/* <OAuth /> */}
       </form>
       <div className="d-flex gap-2 mt-5">
         <p>Have an account?</p>
-        <Link to={"/sign-in"} className="text-blue-700">
+        <Link to={"/sign-in"}  style={{color:"rgb(0,128,128)"}}>
           Sign in
         </Link>
       </div>

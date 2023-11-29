@@ -159,7 +159,7 @@ export default function Profile() {
   return (
     <div>
     <div className="container p-3 border rounded mt-20 " style={{ maxWidth: "768px" }}>
-      <h1 className="text-3xl font-semibold text-center my-7">Profile</h1>
+      <h1 className="text-3xl font-semibold text-center my-7"><i class="fa fa-user" aria-hidden="true"></i> Profile</h1>
       <form onSubmit={handleSubmit} className="row g-4">
         <div className="col-md-4">
           <input
@@ -213,7 +213,7 @@ export default function Profile() {
             id="password"
             className="form-control my-2"
           />
-          <div className="d-flex">
+          {/* <div className="d-flex">
             <button disabled={loading} className="btn btn-primary me-2 mt-2">
               {loading ? "Loading..." : "Update"}
             </button>
@@ -226,7 +226,19 @@ export default function Profile() {
             >
               Sign out
             </button>
-          </div>
+          </div> */}
+          <div className="d-flex">
+  <button disabled={loading} className="btn btn-primary me-2 mt-2 hover:opacity-80" style={{ backgroundColor: '#004080' }}>
+    {loading ? "Loading..." : "Update"}
+  </button>
+  <Link className="btn btn-success mt-2 ms-2 hover:opacity-80" to={"/create-listing"} style={{ backgroundColor: '#006600' }}>
+    Create Listing
+  </Link>
+  <button onClick={handleSignOut} className="btn btn-danger ms-2 mt-2 hover:opacity-80" style={{ backgroundColor: '#990000' }}>
+    Sign out
+  </button>
+</div>
+
         </div>
       </form>
       
@@ -239,9 +251,9 @@ export default function Profile() {
         <div>
         <button
           onClick={handleShowListings}
-          className="btn btn-warning  mt-4"
+          className="btn text-light  mt-4 hover:opacity-80" style={{backgroundColor:"#690707"}}
         >
-          Show Listings
+         <i className="fa fa-xing" aria-hidden="true"></i>plore listings
         </button>
         <p className="text-danger mt-4">
           {showListingsError ? "Error showing listings" : ""}

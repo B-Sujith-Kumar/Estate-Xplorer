@@ -388,7 +388,7 @@ export default function Search() {
     const searchQuery = urlParams.toString();
     const res = await fetch(`/api/listing/get?${searchQuery}`);
     const data = await res.json();
-    if (data.length < 9) {
+    if (data.length < 8) {
       setShowMore(false);
     }
     setListings([...listings, ...data]);
@@ -397,11 +397,11 @@ export default function Search() {
   return (
     <div className=''>
       <center>
-      <div className='p-7 border-bottom-2 border-md-end-2 ' style={{maxWidth:"500px"}}>
+      {/* <div className='p-7 border-bottom-2 border-md-end-2 ' style={{maxWidth:"500px"}}>
         <form onSubmit={handleSubmit} className='d-flex flex-column gap-4'>
           <div className='d-flex align-items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
-              Search Term/item:
+              Search <span><i class="fa fa-home" aria-hidden="true"></i></span>
             </label>
             <input
               type='text'
@@ -493,17 +493,126 @@ export default function Search() {
               <option value='createdAt_asc'>Oldest</option>
             </select>
           </div>
-          <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95'>
-            Search
+          <center>
+          <button className='w-50  text-white p-2 rounded-lg  hover:opacity-95 fs-4' style={{backgroundColor:"#690707"}}>
+          <i class="fa fa-xing " aria-hidden="true"></i>plore
           </button>
+          </center>
         </form>
+      </div> */}
+      <div className='p-7 border-bottom-2 border-md-end-2' style={{ maxWidth: "500px" }}>
+  <form onSubmit={handleSubmit} className='d-flex flex-column gap-4'>
+    <div className='d-flex align-items-center gap-2'>
+      <label className='whitespace-nowrap font-semibold'>
+        Search <span><i className="fa fa-home" aria-hidden="true"></i></span>
+      </label>
+      <input
+        type='text'
+        id='searchTerm'
+        placeholder='Search...'
+        className='form-control rounded-lg p-3'
+        value={sidebardata.searchTerm}
+        onChange={handleChange}
+      />
+    </div>
+
+    <div className='d-flex gap-2 flex-wrap align-items-center'>
+      <label className='font-semibold'>Type:</label>
+      <div className='form-check form-check-inline'>
+        <input
+          type='checkbox'
+          id='all'
+          className='form-check-input'
+          onChange={handleChange}
+          checked={sidebardata.type === 'all'}
+        />
+        <label className='form-check-label'>Rent & Sale</label>
       </div>
+      <div className='form-check form-check-inline'>
+        <input
+          type='checkbox'
+          id='rent'
+          className='form-check-input'
+          onChange={handleChange}
+          checked={sidebardata.type === 'rent'}
+        />
+        <label className='form-check-label'>Rent</label>
+      </div>
+      <div className='form-check form-check-inline'>
+        <input
+          type='checkbox'
+          id='sale'
+          className='form-check-input'
+          onChange={handleChange}
+          checked={sidebardata.type === 'sale'}
+        />
+        <label className='form-check-label'>Sale</label>
+      </div>
+      <div className='form-check form-check-inline'>
+        <input
+          type='checkbox'
+          id='offer'
+          className='form-check-input'
+          onChange={handleChange}
+          checked={sidebardata.offer}
+        />
+        <label className='form-check-label'>Offer</label>
+      </div>
+    </div>
+
+    <div className='d-flex gap-2 align-items-center'>
+      <label className='font-semibold'>Amenities:</label>
+      <div className='form-check form-check-inline'>
+        <input
+          type='checkbox'
+          id='parking'
+          className='form-check-input'
+          onChange={handleChange}
+          checked={sidebardata.parking}
+        />
+        <label className='form-check-label'>Parking</label>
+      </div>
+      <div className='form-check form-check-inline'>
+        <input
+          type='checkbox'
+          id='furnished'
+          className='form-check-input'
+          onChange={handleChange}
+          checked={sidebardata.furnished}
+        />
+        <label className='form-check-label'>Furnished</label>
+      </div>
+    </div>
+
+    <div className='d-flex align-items-center gap-2'>
+      <label className='font-semibold'>Sort:</label>
+      <select
+        onChange={handleChange}
+        defaultValue={'created_at_desc'}
+        id='sort_order'
+        className='form-select rounded-lg p-3'
+      >
+        <option value='regularPrice_desc'>Price high to low</option>
+        <option value='regularPrice_asc'>Price low to high</option>
+        <option value='createdAt_desc'>Latest</option>
+        <option value='createdAt_asc'>Oldest</option>
+      </select>
+    </div>
+
+    <center>
+      <button className='btn  w-50 rounded-lg fs-5 text-light hover:opacity-80' style={{backgroundColor:"#690707"}}>
+        <i className="fa fa-xing" aria-hidden="true"></i>plore
+      </button>
+    </center>
+  </form>
+</div>
+
       </center>
       <div className='flex-1 m-0'>
-        <h1 className='text-3xl font-semibold border-b p-3 text-slate-700 mt-5'>
-          Listing results:
-        </h1>
-        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 m-0 p-4'>
+        <h3 className='text-2xl font-semibold border-b p-3 text-dark mt-5'>
+        Property Matches:
+        </h3>
+        <div className='row row-cols-1 row-cols-md-2 row-cols-lg-4 m-0 p-6'>
           {!loading && listings.length === 0 && (
             <p className='text-xl text-slate-700'>No listing found!</p>
           )}
@@ -522,9 +631,9 @@ export default function Search() {
           {showMore && (
             <button
               onClick={onShowMoreClick}
-              className='text-green-700 hover:underline p-7 text-center w-full'
+              className='text-red-700 hover:underline p-7 text-center w-full'
             >
-              Show more
+               <i className="fa fa-xing" aria-hidden="true"></i>plore more
             </button>
           )}
         </div>
