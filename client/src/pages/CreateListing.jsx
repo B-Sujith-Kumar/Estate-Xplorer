@@ -753,7 +753,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 value={formData.regularPrice}
               />
-              
+
               <div className="align-items-center">
                 <label>Regular price</label>
                 {formData.type === "rent" && (
@@ -761,7 +761,7 @@ export default function CreateListing() {
                 )}
               </div>
             </div>
-           
+
             {formData.offer && (
               <div className="d-flex align-items-center gap-2">
                 <input

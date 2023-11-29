@@ -58,7 +58,7 @@ const listingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    propertyStatus: {
+    status: {
       type: String,
       required: true,
     },
