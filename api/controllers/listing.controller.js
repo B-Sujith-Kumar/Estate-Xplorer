@@ -150,7 +150,9 @@ function predictHousePrice(location, bedrooms, size, propertyType, sellerType, p
             propertyStatus
         ]);
         process.stdout.on('data', (data) => {
+           
             resolve(parseFloat(data.toString()));
+         
         });
         process.stderr.on('data', (data) => {
             reject(parseFloat(data.toString()));

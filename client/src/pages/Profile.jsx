@@ -232,7 +232,7 @@ export default function Profile() {
     {loading ? "Loading..." : "Update"}
   </button>
   <Link className="btn btn-success mt-2 ms-2 hover:opacity-80" to={"/create-listing"} style={{ backgroundColor: '#006600' }}>
-    Create Listing
+  Add a Property
   </Link>
   <button onClick={handleSignOut} className="btn btn-danger ms-2 mt-2 hover:opacity-80" style={{ backgroundColor: '#990000' }}>
     Sign out
@@ -253,7 +253,7 @@ export default function Profile() {
           onClick={handleShowListings}
           className="btn text-light  mt-4 hover:opacity-80" style={{backgroundColor:"#690707"}}
         >
-         <i className="fa fa-xing" aria-hidden="true"></i>plore listings
+         <i className="fa fa-xing" aria-hidden="true"></i>plore properties
         </button>
         <p className="text-danger mt-4">
           {showListingsError ? "Error showing listings" : ""}
@@ -278,7 +278,7 @@ export default function Profile() {
                   className="text-primary font-semibold hover:underline truncate flex-1"
                   to={`/listing/${listing._id}`}
                 >
-                  <p>{listing.name}</p>
+                  <p><i className="fa fa-xing" aria-hidden="true"></i>plore : {listing.name}</p>
                 </Link>
 
                 <div className="d-flex flex-col item-center">

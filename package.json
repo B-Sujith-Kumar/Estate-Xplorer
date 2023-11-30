@@ -21,6 +21,10 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "numpy": "^0.0.1",
+    "pandas": "^0.0.3",
+    "pickle": "^0.2.0",
+    "sys": "^0.0.1"
   }
 }

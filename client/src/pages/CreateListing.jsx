@@ -578,7 +578,7 @@ export default function CreateListing() {
   return (
     <main className="p-3 max-w-5xl mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">
-        Create a Listing
+      Add a Property
       </h1>
       <form onSubmit={handleSubmit} className="row g-4 border m-2 rounded">
         <div className="col-md-6">
@@ -611,37 +611,62 @@ export default function CreateListing() {
             onChange={handleChange}
             value={formData.address}
           />
-          <label>
-            Location:
-            <select
-              id="location"
-              name="location"
-              onChange={handleChange}
-              value={formData.location}
-            >
-              <option value="0">Bangalore</option>
-              <option value="1">Chennai</option>
-              <option value="2">Delhi</option>
-              <option value="3">Hyderabad</option>
-              <option value="4">Mumbai</option>
-            </select>
-          </label>
-          <label>
-            Status:
-            <select
-              id="status"
-              name="status"
-              onChange={handleChange}
-              value={formData.status}
-            >
-              <option value="0">New</option>
-              <option value="1">Ready to move</option>
-              <option value="2">Resale</option>
-              <option value="3">Under Construction</option>
-            </select>
-          </label>
+          <div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label for="location" class="form-label">Location:</label>
+      <select
+        class="form-select"
+        id="location"
+        name="location"
+        onChange={handleChange}
+        value={formData.location}
+      >
+        <option value="0">Bangalore</option>
+        <option value="1">Chennai</option>
+        <option value="2">Delhi</option>
+        <option value="3">Hyderabad</option>
+        <option value="4">Mumbai</option>
+      </select>
+    </div>
 
-          <label>
+    <div class="col-md-4 mb-3">
+      <label for="status" class="form-label">Status:</label>
+      <select
+        class="form-select"
+        id="status"
+        name="status"
+        onChange={handleChange}
+        value={formData.status}
+      >
+        <option value="0">New</option>
+        <option value="1">Ready to move</option>
+        <option value="2">Resale</option>
+        <option value="3">Under Construction</option>
+      </select>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="type" class="form-label">Type:</label>
+      <select
+        class="form-select"
+        id="type"
+        name="propertyType"
+        onChange={handleChange}
+        value={formData.propertyType}
+      >
+        <option value="0">Apartment</option>
+        <option value="1">Independent Floor</option>
+        <option value="2">Independent House</option>
+        <option value="3">Residential Plot</option>
+        <option value="4">Villa</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+          {/* <label>
             Type:
             <select
               id="type"
@@ -655,8 +680,8 @@ export default function CreateListing() {
               <option value="3">Residential Plot</option>
               <option value="4">Villa</option>
             </select>
-          </label>
-          <div className="form-check">
+          </label> */}
+          {/* <div className="form-check">
             <input
               type="checkbox"
               id="sale"
@@ -714,7 +739,79 @@ export default function CreateListing() {
               onChange={handleChange}
               value={formData.size}
             />
-          </label>
+          </label> */}
+
+<div className="container mt-4">
+  <div className="d-flex flex-column gap-2">
+    <div className="form-check">
+      <input
+        type="checkbox"
+        id="sale"
+        className="form-check-input"
+        onChange={handleChange}
+        checked={formData.type === "sale"}
+      />
+      <label className="form-check-label" htmlFor="sale">Sell</label>
+    </div>
+
+    <div className="form-check">
+      <input
+        type="checkbox"
+        id="rent"
+        className="form-check-input"
+        onChange={handleChange}
+        checked={formData.type === "rent"}
+      />
+      <label className="form-check-label" htmlFor="rent">Rent</label>
+    </div>
+
+    <div className="form-check">
+      <input
+        type="checkbox"
+        id="parking"
+        className="form-check-input"
+        onChange={handleChange}
+        checked={formData.parking}
+      />
+      <label className="form-check-label" htmlFor="parking">Parking spot</label>
+    </div>
+
+    <div className="form-check">
+      <input
+        type="checkbox"
+        id="furnished"
+        className="form-check-input"
+        onChange={handleChange}
+        checked={formData.furnished}
+      />
+      <label className="form-check-label" htmlFor="furnished">Furnished</label>
+    </div>
+
+    <div className="form-check">
+      <input
+        type="checkbox"
+        id="offer"
+        className="form-check-input"
+        onChange={handleChange}
+        checked={formData.offer}
+      />
+      <label className="form-check-label" htmlFor="offer">Offer</label>
+    </div>
+  </div>
+
+  <div className="mb-3">
+    <label htmlFor="size" className="form-label">Size:</label>
+    <input
+      type="number"
+      id="size"
+      className="form-control"
+      onChange={handleChange}
+      value={formData.size}
+    />
+  </div>
+</div>
+
+          
           <div className="d-flex gap-3">
             <div className="d-flex align-items-center gap-2">
               <input
@@ -804,7 +901,7 @@ export default function CreateListing() {
               type="button"
               disabled={uploading}
               onClick={handleImageSubmit}
-              className="btn  bg-success p-2 px-4 rounded"
+              className="btn text-light bg-success p-2 px-4 rounded"
             >
               {uploading ? "Uploading..." : "Upload"}
             </button>
@@ -837,11 +934,11 @@ export default function CreateListing() {
             disabled={loading || uploading}
             className="btn btn-primary p-2 px-4 rounded mb-2"
           >
-            {loading ? "Creating..." : "Create listing"}
+            {loading ? "Creating..." : "Create "}
           </button>
           <br />
           <br />
-          <button
+          {/* <button
             className="btn btn-primary rounded"
             onClick={handlePredictPrice}
           >
@@ -850,7 +947,25 @@ export default function CreateListing() {
           {error && <p className="text-danger text-sm">{error}</p>}
           {predictedPrice !== null && (
             <p>Estimated Price: ₹{predictedPrice.toFixed(2)} Lakhs</p>
-          )}
+          )} */}
+
+<div className="text-center mt-4">
+  <button
+    className="btn  rounded-pill btn-lg hover:opacity-80" style={{backgroundColor:"#690707", color:"white"}}
+    onClick={handlePredictPrice}
+  >
+    <span ><i className="fa fa-xing" aria-hidden="true"></i>pert price prediction</span>
+  </button>
+
+  {error && <p className="text-danger mt-2">Error: {error}</p>}
+
+  {predictedPrice !== null && (
+    <p className="text-success mt-2">
+      Estimated Price: ₹{predictedPrice.toFixed(2)} Lakhs
+    </p>
+  )}
+</div>
+
         </div>
       </form>
     </main>
