@@ -154,7 +154,6 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { useSelector } from "react-redux";
 import { Navigation } from "swiper/modules";
@@ -170,7 +169,6 @@ import {
   FaShare,
 } from "react-icons/fa";
 import Contact from "../components/Contact";
-import { list } from "firebase/storage";
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 
@@ -332,7 +330,9 @@ export default function Listing() {
                   // className="  p-2 px-4 py-1 max-w-200 text-white text-center p-1 rounded-md"
                   // style={{ backgroundColor: "#006600" }}
                   // >
-                  <p className="btn  text-light p-2 px-4 max-w-200  text-center p-1 rounded-md fw-bolder mb-3" style = {{backgroundColor: "#006600"}}
+                  <p
+                    className="btn  text-light p-2 px-4 max-w-200  text-center p-1 rounded-md fw-bolder mb-3"
+                    style={{ backgroundColor: "#006600" }}
                   >
                     <span>
                       Rs.{+listing.regularPrice - +listing.discountPrice} OFF
@@ -406,12 +406,9 @@ export default function Listing() {
                   <button
                     onClick={() => setContact(true)}
                     className="bg-dark text-white rounded-lg  hover-opacity-95 p-2"
-                    style = {{width: "40%"}}
+                    style={{ width: "40%" }}
                   >
-                    <i
-                      className="fa fa-phone me-2"
-                      aria-hidden="true"
-                    ></i>{" "}
+                    <i className="fa fa-phone me-2" aria-hidden="true"></i>{" "}
                     Contact landlord
                   </button>
                 )}
