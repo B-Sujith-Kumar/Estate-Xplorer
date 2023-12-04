@@ -580,7 +580,7 @@ export default function CreateListing() {
       <h1 className="text-3xl font-semibold text-center my-7">
         Add a Property
       </h1>
-      <form onSubmit={handleSubmit} className="row g-4 border m-2 rounded">
+      <form onSubmit={handleSubmit} className="row g-4 border m-2 rounded pb-3">
         <div className="col-md-6">
           <input
             type="text"
