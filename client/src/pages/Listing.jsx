@@ -309,8 +309,8 @@ export default function Listing() {
               <p className="fs-4 font-semibold">
                 {listing.name} - Rs.{" "}
                 {listing.offer
-                  ? listing.discountPrice.toLocaleString("en-US")
-                  : listing.regularPrice.toLocaleString("en-US")}
+                  ? listing.discountPrice.toLocaleString("en-IN")
+                  : listing.regularPrice.toLocaleString("en-IN")}
                 {listing.type === "rent" && " / month"}
               </p>
               <p className="d-flex align-items-center mt-2 gap-2 text-slate-600  fs-6">
@@ -335,7 +335,7 @@ export default function Listing() {
                     style={{ backgroundColor: "#006600" }}
                   >
                     <span>
-                      Rs.{+listing.regularPrice - +listing.discountPrice} OFF
+                      Rs. {(+listing.regularPrice - +listing.discountPrice).toLocaleString("en-IN")} OFF
                     </span>
                   </p>
                 )}
@@ -404,7 +404,7 @@ export default function Listing() {
                 listing.userRef !== currentUser._id &&
                 !contact && (
                   <button
-                    onClick={() => setContact(true)}
+                    onClick={() => setContact(!contact)}
                     className="bg-dark text-white rounded-lg  hover-opacity-95 p-2"
                     style={{ width: "40%" }}
                   >
@@ -412,6 +412,11 @@ export default function Listing() {
                     Contact landlord
                   </button>
                 )}
+                {contact && <button
+                    onClick={() => setContact(!contact)}
+                    className="bg-dark text-white rounded-lg  hover-opacity-95 p-2"
+                    style={{ width: "20%" }}
+                  ><i className="fa fa-times-circle" aria-hidden="true"></i>&nbsp;&nbsp;Close</button>}
               {contact && <Contact listing={listing} />}
             </div>
           </div>
@@ -423,11 +428,11 @@ export default function Listing() {
       )}
       {listing && !loading && !error && (
         <div className="p-12">
-          <span className="font-bold  fs-3" style={{ color: "#690707" }}>
+          <span className="font-bold  fs-2" style={{ color: "#690707", textTransform: "uppercase"}}>
             Description{" "}
           </span>
           <br />
-          <div className="mt-4">{listing.description}</div>
+          <div className="mt-4 fs-5" style={{lineHeight: "1.8"}}>{listing.description}</div>
         </div>
       )}
     </main>

@@ -31,7 +31,7 @@ Discover the latest property offers for both renting and buying. Our platform ke
 
       </p>
       <p className="mb-4 text-slate-700">
-      Easily create detailed property listings with essential information such as property name, description, address, type, selling/renting status, amenities, and discounted prices. Explore listings that match your preferences effortlessly.Experience the future of real estate with our machine learning-powered price estimation feature. Get accurate predictions for property prices, empowering you to make informed decisions.
+      Easily create detailed property listings with essential information such as property name, description, address, type, selling/renting status, amenities, and discounted prices. Explore listings that match your preferences effortlessly.Experience the future of real estate with our machine learning-powered price estimation feature. Get accurate predictions for property prices, empowering you to make informed decisions.
       </p>
     </div>
     </center>

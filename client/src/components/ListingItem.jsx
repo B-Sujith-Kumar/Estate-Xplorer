@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // import { Link } from 'react-router-dom';
 // import { MdLocationOn } from 'react-icons/md';
 
@@ -75,7 +76,7 @@ export default function ListingItem({ listing }) {
             "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Sales_Blog/real-estate-business-compressor.jpg?width=595&height=400&name=real-estate-business-compressor.jpg"
           }
           alt="listing cover"
-          className="card-img-top h-320 sm:h-220 w-full object-cover hover-scale-105 transition-scale-300 p-2  rounded"
+          className="card-img-top h-320 sm:h-220 w-full object-cover hover-scale-105 transition-scale-300 p-2  rounded" style={{height: "220px"}}
         />
         <div className="card-body p-3 d-flex flex-column gap-2 w-full">
           <p className="card-title h5 fw-bold text-slate-700">{listing.name}</p>
@@ -85,9 +86,9 @@ export default function ListingItem({ listing }) {
               {listing.address}
             </p>
           </div>
-          <p className="card-text text-sm text-gray-600 line-clamp-2">
+          {/* <p className="card-text text-sm text-gray-600 line-clamp-2">
             {listing.description}
-          </p>
+          </p> */}
           <p className="card-text text-slate-500 mt-2 fw-bold ">
             Rs. 
             {listing.offer
