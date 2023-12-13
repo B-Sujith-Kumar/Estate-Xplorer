@@ -61,10 +61,10 @@ Predictor Script: The machine learning predictor script (predictor.py) and the p
 
 ## File Structure:
 
-api: Backend code for the platform.
-client: Frontend code for the platform.
-predictor.py: Machine learning predictor script.
-pickle_file: Pickle file for machine learning model.
+api: Backend code for the platform.<br />
+client: Frontend code for the platform.<br />
+predictor.py: Machine learning predictor script.<br />
+pickle_file: Pickle file for machine learning model.<br />
 
 ## License
 This project is licensed under the MIT License.
